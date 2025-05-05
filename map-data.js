@@ -11,7 +11,7 @@ const maps = [
         ]
     },
     {
-        name: "Barrens",
+        name: "The Barrens",
         image: "maps/barrens.jpg",
         points: [
             { text: "Faltering, lvl 11-20", x: 47, y: 26 },
@@ -37,10 +37,46 @@ const maps = [
             { text: "Lesser, lvl 29-35", x: 30, y: 44 },
             { text: "Lesser, lvl 29-35", x: 49, y: 53 },
             { text: "Lesser, lvl 29-35", x: 64, y: 53 },
-            { text: "Normal, lvl 40-48", x: 70, y: 60 },
-            { text: "Normal, lvl 40-48", x: 80, y: 74 },
-            { text: "Normal, lvl 40-48", x: 72, y: 78 },
-            { text: "Normal, lvl 40-48", x: 74, y: 88 },
+            { text: "Regular, lvl 40-48", x: 70, y: 60 },
+            { text: "Regular, lvl 40-48", x: 80, y: 74 },
+            { text: "Regular, lvl 40-48", x: 72, y: 78 },
+            { text: "Regular, lvl 40-48", x: 74, y: 88 },
         ],
-    }
+    },
+    {
+        name: "Feralas",
+        image: "maps/feralas.jpg",
+        points: [
+            { text: "Greater, lvl 54-60", x: 31, y: 43 },
+            { text: "Greater, lvl 54-60", x: 75, y: 44 },
+        ],
+    },
+    {
+        name: "Tanaris",
+        image: "maps/tanaris.jpg",
+        points: [
+            { text: "Greater, lvl 54-60", x: 61, y: 38 },
+            { text: "Greater, lvl 54-60", x: 44, y: 42 },
+            { text: "Greater, lvl 54-60", x: 43, y: 31 },
+            { text: "Greater, lvl 54-60", x: 51, y: 28 },
+            { text: "Greater, lvl 54-60", x: 54, y: 32 },
+            { text: "Greater, lvl 54-60", x: 50, y: 34 },
+            { text: "Supreme, lvl 60-62", x: 34, y: 57 },
+            { text: "Supreme, lvl 60-62", x: 51, y: 60 },
+        ],
+    },
+    {
+        name: "Silithus",
+        image: "maps/silithus.jpg",
+        points: [
+            { text: "Supreme, lvl 60-62", x: 21, y: 30 },
+            { text: "Supreme, lvl 60-62", x: 36, y: 35 },
+            { text: "Supreme, lvl 60-62", x: 58, y: 24 },
+            { text: "Supreme, lvl 60-62", x: 55, y: 59 },
+            { text: "Supreme, lvl 60-62", x: 50, y: 61 },
+            { text: "Supreme, lvl 60-62", x: 35, y: 59 },
+            { text: "Supreme, lvl 60-62", x: 34, y: 73 },
+            { text: "Supreme, lvl 60-62", x: 46, y: 79 },
+        ],
+    },
 ];

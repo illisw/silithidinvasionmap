@@ -10,6 +10,8 @@
 <body>
     <h1>World of Warcraft Classic Silithid Invasion Maps</h1>
     <br>Click on a point to copy a /way TomTom command</br>
+    <br>Each crystal has ~12 mobs that grant 5 brood rep and drop blues and greens.</br>
+    <br>Exception are the Supreme spawns that grant 50 rep and upwards.</br>
     <div id="map-container"></div>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -32,7 +34,7 @@
                     marker.setAttribute("title", point.text); // Tooltip text
     
                     marker.addEventListener("click", () => {
-                        const command = `/way ${point.x} ${point.y}`;
+                        const command = `/way ${map.name} ${point.x} ${point.y}`;
                         navigator.clipboard.writeText(command).then(() => {
                             console.log("Copied to clipboard:", command);
                         }).catch(err => {
