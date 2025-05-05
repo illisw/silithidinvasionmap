@@ -48,6 +48,64 @@
                 container.appendChild(mapWrapper);
             });
         });
-    </script>       
+    </script>
+<dialog id="feedbackDialog">
+    <form method="dialog">
+      <h2>Feedback</h2>
+      <input type="text" id="feedbackInput" placeholder="Type your message here" style="width:100%;">
+      <button type="submit">Send</button>
+      <button type="button" id="cancelBtn">Cancel</button>
+    </form>
+  </dialog>
+  
+  <a href="#" id="feedbackLink">Send Feedback</a>
+  
+  <script>
+  const webhookURL = 'https://discord.com/api/webhooks/1369074721328463872/Nqs4Uk9gFVECAO7IbB58nNux0Y7YzJRqdU5mDkDpRpPelcrM1oMyPKV7xTNzaXeHEgM1';
+  
+  const dialog = document.getElementById('feedbackDialog');
+  const feedbackLink = document.getElementById('feedbackLink');
+  const cancelBtn = document.getElementById('cancelBtn');
+  const feedbackInput = document.getElementById('feedbackInput');
+  
+  feedbackLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    feedbackInput.value = ''; 
+    dialog.showModal();
+  });
+  
+  cancelBtn.addEventListener('click', () => {
+    dialog.close();
+  });
+  
+  dialog.querySelector('form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const message = feedbackInput.value.trim();
+    if (!message) {
+      alert('Please type a message before sending.');
+      return;
+    }
+    fetch(webhookURL, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ content: `Feedback: ${message}` })
+    })
+    .then(response => {
+        if (response.ok) {
+            alert('Feedback sent! Thank you.');
+        } else {
+            alert('Failed to send feedback. Please try again.');
+        }
+        dialog.close();
+    })
+    .catch(error => {
+        console.error('Error sending feedback:', error);
+        alert('Error sending feedback. Please try again.');
+        dialog.close();
+    });
+  });
+  </script>  
 </body>
 </html>
