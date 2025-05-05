@@ -9,6 +9,7 @@
 </head>
 <body>
     <h1>World of Warcraft Classic Silithid Invasion Maps</h1>
+    <br>Click on a point to copy a /way TomTom command</br>
     <div id="map-container"></div>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -17,7 +18,7 @@
             maps.forEach((map) => {
                 const mapWrapper = document.createElement("div");
                 mapWrapper.classList.add("map-wrapper");
-
+    
                 const img = document.createElement("img");
                 img.src = map.image;
                 img.alt = map.name;
@@ -26,15 +27,25 @@
                 map.points.forEach((point) => {
                     const marker = document.createElement("div");
                     marker.classList.add("marker");
-                    marker.style.top = `${point.y}%`; // Use % directly.
+                    marker.style.top = `${point.y}%`;
                     marker.style.left = `${point.x}%`;
-                    marker.setAttribute("title", point.text);
+                    marker.setAttribute("title", point.text); // Tooltip text
+    
+                    marker.addEventListener("click", () => {
+                        const command = `/way ${point.x} ${point.y}`;
+                        navigator.clipboard.writeText(command).then(() => {
+                            console.log("Copied to clipboard:", command);
+                        }).catch(err => {
+                            console.error("Failed to copy to clipboard", err);
+                        });
+                    });
+    
                     mapWrapper.appendChild(marker);
                 });
     
                 container.appendChild(mapWrapper);
             });
         });
-    </script>    
+    </script>       
 </body>
 </html>

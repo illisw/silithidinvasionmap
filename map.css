@@ -31,12 +31,21 @@ body {
 
 .marker {
     position: absolute;
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
     background-color: red;
     border-radius: 50%;
     transform: translate(-50%, -50%);
     cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.marker:hover {
+    background-color: yellow;
+}
+
+.marker:active {
+    transform: translate(-50%, -50%) scale(1.1);
 }
 
 .marker:hover::after {
@@ -44,7 +53,7 @@ body {
     position: absolute;
     top: -1.5em;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -30%);
     background-color: black;
     color: white;
     padding: 4px 8px;
