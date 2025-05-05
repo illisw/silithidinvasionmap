@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World of Warcraft Classic Silithid Invasion Maps</title>
+    <link rel="stylesheet" href="map.css">
+    <script defer src="map-data.js"></script>
+</head>
+<body>
+    <h1>World of Warcraft Classic Silithid Invasion Maps</h1>
+    <div id="map-container"></div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const container = document.getElementById("map-container");
+    
+            maps.forEach((map) => {
+                const mapWrapper = document.createElement("div");
+                mapWrapper.classList.add("map-wrapper");
+
+                const img = document.createElement("img");
+                img.src = map.image;
+                img.alt = map.name;
+                mapWrapper.appendChild(img);
+    
+                map.points.forEach((point) => {
+                    const marker = document.createElement("div");
+                    marker.classList.add("marker");
+                    marker.style.top = `${point.y}%`; // Use % directly.
+                    marker.style.left = `${point.x}%`;
+                    marker.setAttribute("title", point.text);
+                    mapWrapper.appendChild(marker);
+                });
+    
+                container.appendChild(mapWrapper);
+            });
+        });
+    </script>    
+</body>
+</html>

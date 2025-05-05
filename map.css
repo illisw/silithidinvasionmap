@@ -1,0 +1,55 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    background-color: #1a1a1a;
+    color: white;
+    text-align: center;
+}
+
+#map-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    padding: 16px;
+}
+
+.map-wrapper {
+    position: relative;
+    display: inline-block;
+    margin: 16px;
+}
+
+.map-wrapper img {
+    max-width: 500px;
+    height: auto;
+    border: 2px solid #ffffff;
+    border-radius: 8px;
+}
+
+.marker {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.marker:hover::after {
+    content: attr(title);
+    position: absolute;
+    top: -1.5em;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 10;
+}
